@@ -1,0 +1,31 @@
+﻿{
+  "configurations": [
+    {
+      "name": "WASM - Debug",
+      "generator": "Ninja",
+      "configurationType": "Debug",
+      "buildRoot": "${workspaceRoot}\\build\\${name}",
+      "installRoot": "${workspaceRoot}\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "wasm32-emscripten" ],
+      "variables": [
+        {
+          "name": "SDL2_COPY_SDL_DLL_TARGET",
+          "value": "${workspaceRoot}\\build\\${name}",
+          "type": "STRING"
+        },
+        {
+          "name": "VCPKG_CHAINLOAD_TOOLCHAIN_FILE",
+          "value": "%EMSDK%/upstream/emscripten/cmake/Modules/Platform/Emscripten.cmake",
+          "type": "FILEPATH"
+        },
+        {
+          "name": "EMSCRIPTEN_FORCE_COMPILERS",
+          "value": "OFF"
+        }
+      ]
+    }
+  ]
+}
